@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
+
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,12 +32,21 @@ Route::get('/about', function () {
 
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
 
+Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
+Route::post('/category/add', [CategoryController::class, 'addCat'])->name('store.category');
+
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+
+//        $users = User::all(); // eloquent ORM
+
+        $users = DB::table('users')->get(); // query builder
+
+        return view('dashboard', compact('users'));
     })->name('dashboard');
 });

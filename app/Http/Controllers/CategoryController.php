@@ -15,6 +15,7 @@ class CategoryController extends Controller
     {
 ////////////////////////////// Eloquent ORM
         $categories = Category::latest()->paginate(5);
+        $trashCategory = Category::onlyTrashed()->latest()->paginate(3);
 
 ////////////////////////////// Query Builder
 //        $categories = DB::table('categories')->latest()->paginate(5);
@@ -26,7 +27,10 @@ class CategoryController extends Controller
 //                'users.name'
 //            )->latest()->paginate(5);
 
-        return view('admin.category.index', compact('categories'));
+        return view('admin.category.index', compact(
+            'categories',
+            'trashCategory'
+        ));
     }
 
     public function addCat(Request $request)
@@ -94,4 +98,20 @@ class CategoryController extends Controller
 
         return Redirect()->route('all.category')->with('success', 'Category Updated Successful');
     }
+
+    public function delete($id){
+        $delete = Category::find($id)->delete();
+        return Redirect()->back()->with('success', 'Category deleted Successful');
+    }
+
+    public function restore($id){
+        $restore = Category::withTrashed()->find($id)->restore();
+        return Redirect()->back()->with('success', 'Category restored Successful');
+    }
+
+    public function permanentDelete($id){
+        $permanentDelete = Category::onlyTrashed()->find($id)->forceDelete();
+        return Redirect()->back()->with('success', 'Category Permanent Deleted Successful');
+    }
+
 }

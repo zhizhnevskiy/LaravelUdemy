@@ -12,26 +12,55 @@
 
                 <div class="col-md-8">
                     <div class="card">
+                        @if(session('success'))
+                            <div class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">{{ session('success') }}</h4>
+                            </div>
+                        @endif
                         <div class="card-header">All Category</div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">User</th>
                                     <th scope="col">Created At</th>
                                 </tr>
                                 </thead>
+
                                 <tbody>
-                                <tr>
-                                    <th scope="row"></th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                {{--                                @php($number = 1)--}}
+                                @foreach($categories as $category)
+                                    <tr>
+                                        <th scope="row">{{$categories->firstItem()+$loop->index}}</th>
+
+                                        <td>{{$category->category_name}}</td>
+
+                                        {{--Join Eloquent ORM--}}
+                                        <td>{{$category->user->name}}</td>
+
+                                        {{--Join Query Builder--}}
+{{--                                        <td>{{$category->name}}</td>--}}
+
+                                        <td>
+                                            @if(empty($category->created_at))
+                                                <span class="text-danger"> No Date set</span>
+                                            @else
+                                                {{Carbon\Carbon::parse($category->created_at)->diffForHumans()}}
+                                            @endif
+                                        </td>
+
+                                        <td>
+                                            <a href="{{ url('category/edit/'.$category->id) }}" class="btn btn-info">Edit</a>
+                                            <a href="{{ url('category/delete/'.$category->id) }}" class="btn btn-danger">Delete</a>
+
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
+                            {{ $categories->links() }}
                         </div>
                     </div>
                 </div>
@@ -40,7 +69,7 @@
                     <div class="card">
                         <div class="card-header">Add Category</div>
                         <div class="card-body">
-                            <form action="{{ route('store.category') }}" method="POST" class="m-4">
+                            <form action="{{ route('store.category') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Category Name</label>

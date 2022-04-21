@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -18,19 +19,18 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/email/verify', function () {
+//    return view('auth.verify-email');
+//})->middleware('auth')->name('verification.notice');
 
-Route::get('/home', function () {
-    echo "Home page";
-});
 
-Route::get('/about', function () {
-    return view('about');
-})->middleware('age');
 
+Route::get('/', function () {return view('welcome');});
+Route::get('/home', function () {echo "Home page";});
+Route::get('/about', function () {return view('about');})->middleware('age');
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
+
+
 
 Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
 Route::post('/category/add', [CategoryController::class, 'addCat'])->name('store.category');
@@ -39,6 +39,20 @@ Route::post('/category/update/{id}', [CategoryController::class, 'update']);
 Route::get('/category/delete/{id}', [CategoryController::class, 'delete']);
 Route::get('/category/restore/{id}', [CategoryController::class, 'restore']);
 Route::get('/category/permanentDelete/{id}', [CategoryController::class, 'permanentDelete']);
+
+
+
+Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
+Route::post('/brand/add', [BrandController::class, 'addBrand'])->name('store.brand');
+Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);
+Route::post('/brand/update/{id}', [BrandController::class, 'update']);
+Route::get('/brand/delete/{id}', [BrandController::class, 'delete']);
+
+
+
+Route::get('/multi/image', [BrandController::class, 'multiImage'])->name('multi.image');
+Route::post('/multi/add', [BrandController::class, 'storeImages'])->name('store.image');
+
 
 
 Route::middleware([

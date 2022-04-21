@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function allCat()
     {
 ////////////////////////////// Eloquent ORM
@@ -99,17 +103,20 @@ class CategoryController extends Controller
         return Redirect()->route('all.category')->with('success', 'Category Updated Successful');
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $delete = Category::find($id)->delete();
         return Redirect()->back()->with('success', 'Category deleted Successful');
     }
 
-    public function restore($id){
+    public function restore($id)
+    {
         $restore = Category::withTrashed()->find($id)->restore();
         return Redirect()->back()->with('success', 'Category restored Successful');
     }
 
-    public function permanentDelete($id){
+    public function permanentDelete($id)
+    {
         $permanentDelete = Category::onlyTrashed()->find($id)->forceDelete();
         return Redirect()->back()->with('success', 'Category Permanent Deleted Successful');
     }

@@ -26,6 +26,7 @@
                                     <th scope="col">Category Name</th>
                                     <th scope="col">User</th>
                                     <th scope="col">Created At</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
 
@@ -112,6 +113,7 @@
                                     <th scope="col">Category Name</th>
                                     <th scope="col">User</th>
                                     <th scope="col">Created At</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
 

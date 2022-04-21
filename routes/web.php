@@ -24,12 +24,10 @@ use Illuminate\Support\Facades\DB;
 //})->middleware('auth')->name('verification.notice');
 
 
-
 Route::get('/', function () {return view('welcome');});
 Route::get('/home', function () {echo "Home page";});
 Route::get('/about', function () {return view('about');})->middleware('age');
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
-
 
 
 Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
@@ -41,7 +39,6 @@ Route::get('/category/restore/{id}', [CategoryController::class, 'restore']);
 Route::get('/category/permanentDelete/{id}', [CategoryController::class, 'permanentDelete']);
 
 
-
 Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
 Route::post('/brand/add', [BrandController::class, 'addBrand'])->name('store.brand');
 Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);
@@ -49,23 +46,22 @@ Route::post('/brand/update/{id}', [BrandController::class, 'update']);
 Route::get('/brand/delete/{id}', [BrandController::class, 'delete']);
 
 
-
 Route::get('/multi/image', [BrandController::class, 'multiImage'])->name('multi.image');
 Route::post('/multi/add', [BrandController::class, 'storeImages'])->name('store.image');
 
 
+//Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+//    Route::get('/dashboard', function () {
+////        $users = User::all(); // eloquent ORM
+//        $users = DB::table('users')->get(); // query builder
+//        return view('dashboard', compact('users'));
+//    })->name('dashboard');
+//});
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-
-//        $users = User::all(); // eloquent ORM
-
-        $users = DB::table('users')->get(); // query builder
-
-        return view('dashboard', compact('users'));
-    })->name('dashboard');
+    Route::get('/dashboard', function () {return view('admin.index');})->name('dashboard');
 });
+
+Route::get('/user/logout', [BrandController::class, 'logout'])->name('user.logout');

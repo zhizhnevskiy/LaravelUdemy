@@ -1,10 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{--            {{ __('Dashboard') }}--}}
-            All Brand <b></b>
-        </h2>
-    </x-slot>
+@extends('admin.admin_master')
+
+@section('admin')
 
     <div class="py-12">
         <div class="container">
@@ -14,11 +10,11 @@
                     <div class="card">
                         @if(session('success'))
                             <div class="alert alert-success" role="alert">
-                                <h4 class="alert-heading">{{ session('success') }}</h4>
+                                <h4 class="alert-heading"> {{ session('success') }} </h4>
                             </div>
                         @endif
                         <div class="card-header">All Brand</div>
-                        <div class="card-body">
+                        <div class="card-body m-0">
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -26,6 +22,7 @@
                                     <th scope="col">Brand Name</th>
                                     <th scope="col">Brand Image</th>
                                     <th scope="col">Created At</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
 
@@ -35,7 +32,7 @@
                                     <tr>
                                         <th scope="row">{{$brands->firstItem()+$loop->index}}</th>
 
-                                        <td>{{$brand->brand_name}}</td>
+                                        <td> {{$brand->brand_name}} </td>
                                         <td><img
                                                 src="{{ asset($brand->brand_image) }}"
                                                 style="height: 70px"
@@ -117,4 +114,6 @@
         </div>
 
     </div>
-</x-app-layout>
+
+@endsection
+

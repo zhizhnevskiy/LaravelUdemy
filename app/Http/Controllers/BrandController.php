@@ -45,7 +45,7 @@ class BrandController extends Controller
 
         // Add image with package Intervention
         $nameGenerate = hexdec(uniqid()) . '.' . strtolower($brandImage->getClientOriginalExtension());
-        Image::make($brandImage)->resize(300, 200)->save('img/brand/' . $nameGenerate);
+        Image::make($brandImage)->save('img/brand/' . $nameGenerate);
         $lastImage = 'img/brand/' . $nameGenerate;
 
         Brand::insert([

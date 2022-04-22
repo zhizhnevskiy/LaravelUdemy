@@ -1,6 +1,7 @@
-
 <aside class="left-sidebar bg-sidebar">
+
     <div id="sidebar" class="sidebar sidebar-with-footer">
+
         <!-- Aplication Brand -->
         <div class="app-brand">
             <a href="/index.html">
@@ -24,47 +25,46 @@
                 <span class="brand-name">Admin Dashboard</span>
             </a>
         </div>
+
         <!-- begin sidebar scrollbar -->
         <div class="sidebar-scrollbar">
 
             <!-- sidebar menu -->
             <ul class="nav sidebar-inner" id="sidebar-menu">
 
-
                 <li class="has-sub active expand">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                        data-target="#dashboard"
                        aria-expanded="false" aria-controls="dashboard">
                         <i class="mdi mdi-view-dashboard-outline"></i>
-                        <span class="nav-text">Dashboard</span> <b class="caret"></b>
+                        <span class="nav-text">Home</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse show" id="dashboard"
                         data-parent="#sidebar-menu">
                         <div class="sub-menu">
-
-
+                            <li class="active">
+                                <a class="sidenav-item-link" href="{{ route('home.slider') }}">
+                                    <span class="nav-text">Slider</span>
+                                </a>
+                            </li>
                             <li class="active">
                                 <a class="sidenav-item-link" href="index.html">
-                                    <span class="nav-text">Ecommerce</span>
-
+                                    <span class="nav-text">About</span>
                                 </a>
                             </li>
-
-
-                            <li>
-                                <a class="sidenav-item-link" href="analytics.html">
-                                    <span class="nav-text">Analytics</span>
-
-                                    <span class="badge badge-success">new</span>
-
+                            <li class="active">
+                                <a class="sidenav-item-link" href="index.html">
+                                    <span class="nav-text">Portfolio</span>
                                 </a>
                             </li>
-
-
+                            <li class="active">
+                                <a class="sidenav-item-link" href="{{ route('all.brand') }}">
+                                    <span class="nav-text">Brand</span>
+                                </a>
+                            </li>
                         </div>
                     </ul>
                 </li>
-
 
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
@@ -76,8 +76,6 @@
                     <ul class="collapse" id="ui-elements"
                         data-parent="#sidebar-menu">
                         <div class="sub-menu">
-
-
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                    data-target="#components"
@@ -86,14 +84,8 @@
                                 </a>
                                 <ul class="collapse" id="components">
                                     <div class="sub-menu">
-
-                                        <li>
-                                            <a href="alert.html">Alert</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="badge.html">Badge</a>
-                                        </li>
+                                        <li><a href="alert.html">Alert</a></li>
+                                        <li><a href="badge.html">Badge</a></li>
 
                                         <li>
                                             <a href="breadcrumb.html">Breadcrumb</a>
@@ -171,7 +163,6 @@
                                 </ul>
                             </li>
 
-
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                    data-target="#icons"
@@ -192,7 +183,6 @@
                                     </div>
                                 </ul>
                             </li>
-
 
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
@@ -227,7 +217,6 @@
                                 </ul>
                             </li>
 
-
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                    data-target="#maps"
@@ -248,7 +237,6 @@
                                     </div>
                                 </ul>
                             </li>
-
 
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
@@ -271,11 +259,9 @@
                                 </ul>
                             </li>
 
-
                         </div>
                     </ul>
                 </li>
-
 
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#charts"
@@ -286,20 +272,14 @@
                     <ul class="collapse" id="charts"
                         data-parent="#sidebar-menu">
                         <div class="sub-menu">
-
-
                             <li>
                                 <a class="sidenav-item-link" href="chartjs.html">
                                     <span class="nav-text">ChartJS</span>
-
                                 </a>
                             </li>
-
-
                         </div>
                     </ul>
                 </li>
-
 
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#pages"
@@ -310,16 +290,11 @@
                     <ul class="collapse" id="pages"
                         data-parent="#sidebar-menu">
                         <div class="sub-menu">
-
-
                             <li>
                                 <a class="sidenav-item-link" href="user-profile.html">
                                     <span class="nav-text">User Profile</span>
-
                                 </a>
                             </li>
-
-
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                    data-target="#authentication"
@@ -328,20 +303,15 @@
                                 </a>
                                 <ul class="collapse" id="authentication">
                                     <div class="sub-menu">
-
                                         <li>
                                             <a href="sign-in.html">Sign In</a>
                                         </li>
-
                                         <li>
                                             <a href="sign-up.html">Sign Up</a>
                                         </li>
-
                                     </div>
                                 </ul>
                             </li>
-
-
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                    data-target="#others"
@@ -350,24 +320,18 @@
                                 </a>
                                 <ul class="collapse" id="others">
                                     <div class="sub-menu">
-
                                         <li>
                                             <a href="invoice.html">invoice</a>
                                         </li>
-
                                         <li>
                                             <a href="error.html">Error</a>
                                         </li>
-
                                     </div>
                                 </ul>
                             </li>
-
-
                         </div>
                     </ul>
                 </li>
-
 
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
@@ -379,42 +343,27 @@
                     <ul class="collapse" id="documentation"
                         data-parent="#sidebar-menu">
                         <div class="sub-menu">
-
-
                             <li class="section-title">
                                 Getting Started
                             </li>
-
-
                             <li>
                                 <a class="sidenav-item-link" href="introduction.html">
                                     <span class="nav-text">Introduction</span>
-
                                 </a>
                             </li>
-
-
                             <li>
                                 <a class="sidenav-item-link" href="setup.html">
                                     <span class="nav-text">Setup</span>
-
                                 </a>
                             </li>
-
-
                             <li>
                                 <a class="sidenav-item-link" href="customization.html">
                                     <span class="nav-text">Customization</span>
-
                                 </a>
                             </li>
-
-
                             <li class="section-title">
                                 Layouts
                             </li>
-
-
                             <li class="has-sub">
                                 <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse"
                                    data-target="#headers"
@@ -423,23 +372,18 @@
                                 </a>
                                 <ul class="collapse" id="headers">
                                     <div class="sub-menu">
-
                                         <li>
                                             <a href="header-fixed.html">Header Fixed</a>
                                         </li>
-
                                         <li>
                                             <a href="header-static.html">Header Static</a>
                                         </li>
-
                                         <li>
                                             <a href="header-light.html">Header Light</a>
                                         </li>
-
                                         <li>
                                             <a href="header-dark.html">Header Dark</a>
                                         </li>
-
                                     </div>
                                 </ul>
                             </li>
@@ -495,13 +439,10 @@
                     </ul>
                 </li>
 
-
             </ul>
 
         </div>
 
         <hr class="separator"/>
-
-
     </div>
 </aside>

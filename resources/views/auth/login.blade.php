@@ -29,7 +29,7 @@
 
 
         <!-- FAVICON -->
-        <link href="assets/img/favicon.png" rel="shortcut icon"/>
+        <link href="{{ asset('backend/assets/img/favicon.png') }}" rel="shortcut icon"/>
 
         <!--
           HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
@@ -50,7 +50,7 @@
             <div class="card">
                 <div class="card-header bg-primary">
                     <div class="app-brand">
-                        <a href="/index.html">
+                        <a href="{{ route('dashboard') }}">
                             <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"
                                  width="30" height="33"
                                  viewBox="0 0 30 33">
@@ -93,6 +93,15 @@
                             </div>
 
                             <div class="col-md-12">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="d-flex my-2 justify-content-between">
                                     <div class="d-inline-block mr-3">
                                         <label class="control control-checkbox">Remember me
@@ -101,8 +110,11 @@
                                         </label>
 
                                     </div>
-                                    <p><a class="text-blue" href="{{ route('password.request') }}">Forgot Your
-                                            Password?</a></p>
+{{--                                    <p>--}}
+{{--                                        <a class="text-blue" href="{{ route('password.request') }}">--}}
+{{--                                            Forgot Your Password?--}}
+{{--                                        </a>--}}
+{{--                                    </p>--}}
                                 </div>
 
                                 <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Sign In</button>

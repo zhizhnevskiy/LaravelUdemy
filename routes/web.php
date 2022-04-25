@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\HomeController;
 use App\Models\Brand;
+use App\Http\Controllers\AboutController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -35,16 +36,6 @@ Route::get('/about', function () {return view('about');})->middleware('age');
 Route::get('/contact', [ContactController::class, 'index'])->name('con');
 
 
-// Brand
-Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
-Route::post('/category/add', [CategoryController::class, 'addCat'])->name('store.category');
-Route::get('/category/edit/{id}', [CategoryController::class, 'edit']);
-Route::post('/category/update/{id}', [CategoryController::class, 'update']);
-Route::get('/category/delete/{id}', [CategoryController::class, 'delete']);
-Route::get('/category/restore/{id}', [CategoryController::class, 'restore']);
-Route::get('/category/permanentDelete/{id}', [CategoryController::class, 'permanentDelete']);
-
-
 // Category
 Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
 Route::post('/brand/add', [BrandController::class, 'addBrand'])->name('store.brand');
@@ -63,6 +54,20 @@ Route::get('/home/slider', [HomeController::class, 'homeSlider'])->name('home.sl
 Route::get('/add/slider', [HomeController::class, 'addSlider'])->name('add.slider');
 Route::post('/store/slider', [HomeController::class, 'storeSlider'])->name('store.slider');
 Route::get('/slider/delete/{id}', [HomeController::class, 'delete']);
+
+// Admin About
+Route::get('/home/about', [AboutController::class, 'homeAbout'])->name('home.about');
+Route::get('/add/about', [AboutController::class, 'addAbout'])->name('add.about');
+Route::post('/store/about', [AboutController::class, 'storeAbout'])->name('store.about');
+
+// Admin Brand
+Route::get('/category/all', [CategoryController::class, 'allCat'])->name('all.category');
+Route::post('/category/add', [CategoryController::class, 'addCat'])->name('store.category');
+Route::get('/category/edit/{id}', [CategoryController::class, 'edit']);
+Route::post('/category/update/{id}', [CategoryController::class, 'update']);
+Route::get('/category/delete/{id}', [CategoryController::class, 'delete']);
+Route::get('/category/restore/{id}', [CategoryController::class, 'restore']);
+Route::get('/category/permanentDelete/{id}', [CategoryController::class, 'permanentDelete']);
 
 
 // Admin

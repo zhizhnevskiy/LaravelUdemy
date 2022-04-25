@@ -7,9 +7,11 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <h4>Slider</h4>
+                    <h4>About</h4>
                     <br>
-                    <a href="{{ route('add.slider') }}"><button class="btn btn-info mb-4">Add Slider</button></a>
+                    <a href="{{ route('add.about') }}">
+                        <button class="btn btn-info mb-4">Add About</button>
+                    </a>
 
                     <div class="card">
                         @if(session('success'))
@@ -17,45 +19,46 @@
                                 <h4 class="alert-heading"> {{ session('success') }} </h4>
                             </div>
                         @endif
-                        <div class="card-header">Slider</div>
+                        <div class="card-header">About</div>
                         <div class="card-body m-0">
                             <table class="table">
                                 <thead>
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Image</th>
+                                    <th scope="col">Short Description</th>
+                                    <th scope="col">Long Description</th>
                                     <th scope="col">Action</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                 {{--                                @php($number = 1)--}}
-                                @foreach($sliders as $slider)
+                                @foreach($abouts as $about)
                                     <tr>
-                                        <th scope="row">{{$sliders->firstItem()+$loop->index}}</th>
+                                        <th scope="row">{{$abouts->firstItem()+$loop->index}}</th>
 
-                                        <td> {{$slider->title}} </td>
-                                        <td> {{$slider->description}} </td>
-                                        <td><img
-                                                src="{{ asset($slider->image) }}"
-                                                style="height: 70px"
-                                            ></td>
+                                        <td> {{$about->title}} </td>
+                                        <td> {{$about->short_description}} </td>
+                                        <td> {{$about->long_description}} </td>
                                         <td>
-                                            <a href="{{ url('slider/delete/'.$slider->id) }}"
+                                            <a href="{{ url('about/edit/'.$about->id) }}"
+                                               class="btn btn-info"
+                                            >
+                                                Edit
+                                            </a>
+                                            <a href="{{ url('about/delete/'.$about->id) }}"
                                                class="btn btn-danger"
                                                onclick="return confirm('Are you sure to delete')"
                                             >
                                                 Delete
                                             </a>
-
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{ $sliders->links() }}
+                            {{ $abouts->links() }}
                         </div>
                     </div>
                 </div>

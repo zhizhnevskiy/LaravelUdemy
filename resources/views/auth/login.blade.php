@@ -63,8 +63,13 @@
                         </a>
                     </div>
                 </div>
-                <div class="card-body p-5">
 
+                <div class="card-body p-5">
+                    @if(session('success'))
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">{{ session('success') }}</h4>
+                        </div>
+                    @endif
                     <h4 class="text-dark mb-5">Sign In</h4>
 
                     <form method="POST" action="{{ route('login') }}">

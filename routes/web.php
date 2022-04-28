@@ -41,7 +41,7 @@ Route::get('/about', function () {return view('about');})->middleware('age');
 //Route::get('/contact', [ContactController::class, 'index'])->name('con');
 
 
-// Category
+// Brand
 Route::get('/brand/all', [BrandController::class, 'allBrand'])->name('all.brand');
 Route::post('/brand/add', [BrandController::class, 'addBrand'])->name('store.brand');
 Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);

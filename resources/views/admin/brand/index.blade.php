@@ -8,11 +8,11 @@
 
                 <div class="col-md-8">
                     <div class="card">
-                        @if(session('success'))
-                            <div class="alert alert-success" role="alert">
-                                <h4 class="alert-heading"> {{ session('success') }} </h4>
-                            </div>
-                        @endif
+{{--                        @if(session('success'))--}}
+{{--                            <div class="alert alert-success" role="alert">--}}
+{{--                                <h4 class="alert-heading"> {{ session('success') }} </h4>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
                         <div class="card-header">All Brand</div>
                         <div class="card-body m-0">
                             <table class="table">
